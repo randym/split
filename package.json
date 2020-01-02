@@ -1,0 +1,83 @@
+{
+  "name": "split",
+  "version": "0.0.0",
+  "description": "Attempt to reproduce core-js 3.6+ String.split issue",
+  "main": "index.js",
+  "standalone": "Split",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:randym/split.git"
+  },
+  "license": "UNLICENSED",
+  "dependencies": {
+    "underscore": "latest"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.1.0",
+    "@commitlint/config-conventional": "^8.1.0",
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.4.2",
+    "@babel/register": "^7.6.2",
+    "babel-eslint": "^10.0.3",
+    "babelify": "^10",
+    "browser-sync": "^2.26.7",
+    "browserify": "^16.5.0",
+    "core-js": "3.6.1",
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-chai-expect": "^2.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^22.17.0",
+    "eslint-plugin-mocha": "^6.1.1",
+    "eslint-plugin-prettier": "^3.1.0",
+    "husky": "^3.0.0",
+    "jest": "^24.9.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.18.2"
+  },
+  "engine-strict": false,
+  "engines": {
+    "node": "^12",
+    "npm": "^6"
+  },
+  "scripts": {
+    "start": "node script/start.js",
+    "build": "browserify src/index.js -o dist/index.js",
+    "test": "jest",
+    "format": "prettier -c \"src/**/*{.js*,.scss}\"",
+    "lint": "eslint \"src\""
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            [
+              "@babel/preset-env",
+              {
+                "debug": true,
+                "targets": {
+                  "browsers": [
+                    "Explorer 11",
+                    "last 1 Chrome versions",
+                    "last 1 FireFox versions",
+                    "last 1 Safari versions",
+                    "last 1 Edge versions"
+                  ]
+                },
+                "useBuiltIns": "usage",
+                "corejs": {
+                  "version": "3",
+                  "proposals": "true"
+                }
+              }
+            ]
+          ]
+        }
+      ]
+    ]
+  }
+}
