@@ -1,6 +1,6 @@
-import '.'
+import split from '.'
 describe('split', () => {
   test('it splits ends', () => {
-    expect(document.cookie.indexOf('penut-butter')).not.toBe(-1)
+    expect(split).toBe('f1o')
   })
 })

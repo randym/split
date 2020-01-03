@@ -1,19 +1,19 @@
 {
-  "name": "split",
+  "name": "split-sub",
   "version": "0.0.0",
-  "description": "Attempt to reproduce core-js 3.6+ String.split issue",
-  "main": "index.js",
-  "standalone": "Split",
+  "description": "subrepo to reproduce core-js 3.6+ String.split issue",
+  "main": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "git@github.com:randym/split.git"
   },
   "license": "UNLICENSED",
   "dependencies": {
-    "underscore": "latest",
-    "split-sub": "./packages/subrepo"
+    "underscore": "latest"
   },
   "devDependencies": {
+    "ava": "2.4.0",
+    "@babel/node": "7.7.7",
     "@commitlint/cli": "^8.1.0",
     "@commitlint/config-conventional": "^8.1.0",
     "@babel/core": "^7.6.0",
@@ -44,6 +44,7 @@
     "npm": "^6"
   },
   "scripts": {
+    "postinstall": "npm run build",
     "start": "node script/start.js",
     "build": "browserify src/index.js -o dist/index.js",
     "test": "jest",
